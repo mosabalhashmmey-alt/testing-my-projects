@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENG103 Study Hub - Study Smart</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <nav class="glass-nav">
+            <div class="logo">ENG103</div>
+            <ul class="nav-links">
+                <li class="active" data-target="dashboard"><i class="fas fa-home"></i> <span>Home</span></li>
+                <li data-target="beats"><i class="fas fa-book-open"></i> <span>Beats</span></li>
+                <li data-target="flashcards"><i class="fas fa-clone"></i> <span>Cards</span></li>
+                <li data-target="quiz"><i class="fas fa-gamepad"></i> <span>Quiz</span></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            
+            <section id="dashboard" class="page-section active">
+                <header class="top-bar">
+                    <div class="user-stats glass-card">
+                        <div class="level-badge">Lvl <span id="user-level">1</span></div>
+                        <div class="xp-bar-container">
+                            <div class="xp-info">
+                                <span>XP: <span id="user-xp">0</span></span>
+                                <span>Next: <span id="next-level-xp">100</span></span>
+                            </div>
+                            <div class="progress-bg">
+                                <div class="progress-fill" id="xp-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+
+                <div class="glass-card mb-4" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; border-color: var(--primary-blue);">
+                    <h2 style="margin: 0; font-size: 1.5rem;">Select Chapter:</h2>
+                    <select id="chapter-select" onchange="changeChapter(this.value)" class="btn" style="background: var(--bg-dark); color: var(--text-main); font-size: 1rem; border: 1px solid var(--primary-blue); cursor: pointer; max-width: 100%; flex: 1; min-width: 250px;">
+                        <option value="1">Chapter 1: Intro to Tech Comm</option>
+                        <option value="2">Chapter 2: Proofreading Strategies</option>
+                        <option value="3">Chapter 3: The Research Process</option>
+                        <option value="4">Chapter 4: Usable Information</option>
+                        <option value="5">Chapter 5: Ethical Issues</option>
+                        <option value="6">Chapter 6: Structuring Information</option>
+                        <option value="7">Chapter 7: Readable Style</option>
+                        <option value="8">Chapter 8: Memos & Letters</option>
+                        <option value="9">Chapter 9: Instructions & Procedures</option>
+                        <option value="10">Chapter 10: Definitions</option>
+                        <option value="11">Chapter 11: Audience-Centered Visuals</option>
+                        <option value="12">Chapter 12: User-Friendly Documents</option>
+                        <option value="13">Chapter 13: Summaries</option>
+                        <option value="14">Chapter 14: Special Summaries</option>
+                        <option value="15">Chapter 15: Resumes</option>
+                        <option value="16">Chapter 16: Employment Materials</option>
+                        <option value="17">Chapter 17: Proposals</option>
+                        <option value="18">Chapter 18: Formal Reports</option>
+                        <option value="20">Chapter 20: Emails, Presentations & Blogs</option>
+                    </select>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card glass-card">
+                        <i class="fas fa-bullseye"></i>
+                        <h3>Objectives</h3>
+                        <p>Key Learning Goals</p>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Study Beats</h3>
+                        <p>Core Sections</p>
+                    </div>
+                </div>
+
+                <h2 class="section-subtitle">Overview</h2>
+                <div class="glass-card">
+                    <p id="chapter-overview">This chapter covers the foundations of Technical Writing for ENG 103, including its definitions, differences from academic writing, main features, purposes, and common document types.</p>
+                </div>
+            </section>
+
+            <section id="beats" class="page-section">
+                <h1 class="page-title">Study Beats Content</h1>
+                
+                <div class="accordion-container" id="beats-container">
+                    
+                    <div id="beats-ch1" class="chapter-beats">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. What is technical communication?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Definition:</strong> The exchange of information that helps people interact with technology, achieve workplace goals, and solve complex problems.</p>
+                                    <p><strong>Examples:</strong> Cell phone instruction manuals, printer/microwave oven setup information, online courses, writing emails and reports, etc.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Technical Writing vs. Academic Writing</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Technical Writing:</strong> Reader based, task oriented, and design based.</li>
+                                        <li><strong>Academic Writing:</strong> Writer based, supporting the writer's stance, and relies on paragraph form.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Who creates technical communication?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li>All professionals function as technical communicators.</li>
+                                        <li>Anyone in a workplace setting can be a technical communicator.</li>
+                                        <li>Experts in any field are often required to present their knowledge to nonexpert audiences.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>4. Main features of technical communication</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ol>
+                                        <li>Focuses on the reader not the writer (user-centered communication).</li>
+                                        <li>Is efficient and accessible.</li>
+                                        <li>Is clear and relevant.</li>
+                                        <li>Uses media effectively.</li>
+                                        <li>Is created by both individuals and teams.</li>
+                                        <li>Targets a global audience.</li>
+                                        <li>Is persuasive and truthful.</li>
+                                        <li>Is based on research.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>5. Three purposes of technical communication</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Informational purpose:</strong> Anticipate and answer questions.</li>
+                                        <li><strong>Instructional purpose:</strong> Help people to perform a task.</li>
+                                        <li><strong>Persuasive purpose:</strong> Encourage readers to take an action.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>6. Common types of technical documents</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul style="column-count: 2;">
+                                        <li>Memos</li>
+                                        <li>Emails</li>
+                                        <li>Letters</li>
+                                        <li>Instructions</li>
+                                        <li>Procedures</li>
+                                        <li>Manuals</li>
+                                        <li>Brochures</li>
+                                        <li>Proposals</li>
+                                        <li>Reports</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch2" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Importance of Proofreading</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Basic errors will distract the reader and make the writer look careless.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Effective Strategies</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Save it for the final draft:</strong> Don't proofread while drafting.</li>
+                                        <li><strong>Take a break:</strong> Rest before proofreading.</li>
+                                        <li><strong>Work from hard copy:</strong> Spot mistakes on paper.</li>
+                                        <li><strong>Proofread multiple times:</strong> Read more than once.</li>
+                                        <li><strong>Don't rely only on AI:</strong> Never rely completely on Grammarly.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div id="beats-ch3" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Thinking Critically About Research</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Critical thinking means testing the quality of information and accuracy of interpretations. Instead of accepting information at face value, you should examine, evaluate, verify, analyze, and weigh alternatives.</p>
+                                    <p><strong>Effective Strategies:</strong> Ask the right questions, explore a balance of views, explore topic in depth, evaluate sources, and interpret findings objectively.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Primary Vs. Secondary Sources</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Primary Research:</strong> Getting information directly from the source (e.g., conducting interviews, surveys, observing people or events).</li>
+                                        <li><strong>Secondary Research:</strong> Getting information second-hand by reading compiled works (e.g., books, articles, websites).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Hard-Copy Vs. Web-Based Sources</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Hard-Copy Sources:</strong></p>
+                                    <ul>
+                                        <li><em>Benefits:</em> Found on shelves with related materials, easy to determine author/date, easier to preserve and keep secure.</li>
+                                        <li><em>Drawbacks:</em> Time-consuming to search, offer only text/images, hard to update.</li>
+                                    </ul>
+                                    <p><strong>Web-Based Sources:</strong></p>
+                                    <ul>
+                                        <li><em>Benefits:</em> More current and accessible, searches can be narrowed/broadened easily, offers material with no hard-copy equivalent.</li>
+                                        <li><em>Drawbacks:</em> Might only access recent material, not always reliable, user might get confused by too many choices.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>4. Strategies for Internet Research</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li>Select technical keywords rather than general ones.</li>
+                                        <li>Identify the site's purpose and sponsor.</li>
+                                        <li>Assess the currency of the site and its materials.</li>
+                                        <li>Assess the author's credentials and assertions.</li>
+                                        <li>Download only what you need, use it ethically, and cite sources.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>5. Categories of Hard-Copy Reference Works</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul style="column-count: 2;">
+                                        <li>Bibliographies</li>
+                                        <li>Indexes</li>
+                                        <li>Encyclopedias</li>
+                                        <li>Dictionaries</li>
+                                        <li>Handbooks</li>
+                                        <li>Almanacs</li>
+                                        <li>Directories</li>
+                                        <li>Abstracts</li>
+                                        <li>Gray Literature</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+
+                    <div id="beats-ch4" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Providing Usable Information</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>This chapter focuses on providing audiences with usable information by considering the <strong>6 essential steps</strong> when writing a technical document.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch5" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. What Does Ethics Mean?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li>Ethical questions often revolve around technology.</li>
+                                        <li>Ethical stance requires a personal decision.</li>
+                                        <li>Ethical decisions are <strong>not</strong> always black and white.</li>
+                                        <li>Your ethical decisions <strong>do</strong> affect the users, your company, your society, and your job.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Types of Ethical Choices</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Medical technologies:</strong> (e.g., genetic testing) raise questions about personal privacy & medical insurance.</li>
+                                        <li><strong>Banking & retail operations:</strong> (collecting personal info) raise concerns about how this information is used and who has access to it.</li>
+                                        <li><strong>Environmental pollutants:</strong> (e.g., pesticides or smokestacks) raise serious questions about the health of the planet.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Why Does Ethics Matter?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Unethical decisions can harm a company's reputation as well as workers and customers.</p>
+                                    <p><strong>Example:</strong> When an instruction manual is written & vital safety information is purposely omitted to save on the cost of printing, people can be injured.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>4. Examples of Unethical Communication</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul style="column-count: 2;">
+                                        <li>Plagiarizing work of others</li>
+                                        <li>Falsifying information</li>
+                                        <li>Suppressing information</li>
+                                        <li>Exaggerating claims</li>
+                                        <li>Using images that conceal truth</li>
+                                        <li>Stealing proprietary info</li>
+                                        <li>Misusing electronic info</li>
+                                        <li>Exploiting cultural differences</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>5. Strategies for Avoiding Ethical Abuses</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li>Always cite your sources if the information is not your own.</li>
+                                        <li>Give the audience everything it needs to know and a clear understanding.</li>
+                                        <li>Never manipulate information or data in your writing or visuals.</li>
+                                        <li>Use common sense and follow company confidentiality guidelines.</li>
+                                        <li>Do not exploit cultural inequalities.</li>
+                                        <li><strong>Ask yourself:</strong> "Would I stand behind what I have created if held publicly accountable for it?"</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch6" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Structure vs. Non-Standard Structure</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Structure organizes information so readers can understand it.</p>
+                                    <ul>
+                                        <li><strong>Standard Structure:</strong> Intro (attracts attention), Body (supports viewpoint), Conclusion (reemphasizes key points). Used in reports, proposals, letters.</li>
+                                        <li><strong>Non-standard Structure:</strong> Uses columns, colors, and images. Used in brochures, manuals.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Outlining</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Guides the reader point by point. A formal outline undergoes changes as you write.</p>
+                                    <ul>
+                                        <li><strong>Alphanumeric Notation:</strong> Uses Roman numerals, capital letters, Arabic numerals, and lowercase letters.</li>
+                                        <li><strong>Decimal Notation:</strong> Uses Arabic numerals (e.g., 2.0, 2.1, 2.1.1).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Chunking</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Breaks information down into smaller units to show how ideas are connected.</p>
+                                    <ul>
+                                        <li><strong>Web sites:</strong> Information is expected in very short chunks.</li>
+                                        <li><strong>Printed page:</strong> Readers expect longer passages.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>4. Sequencing</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Shows the logical progression of information:</p>
+                                    <ul>
+                                        <li><strong>Spatial:</strong> How parts fit together (physical objects).</li>
+                                        <li><strong>Chronological:</strong> In what order things happen (events).</li>
+                                        <li><strong>Problem-solving:</strong> Diagnosis to solution.</li>
+                                        <li><strong>Cause & Effect:</strong> Describes an incident then traces causes.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>5. Paragraphing & Headings</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Topic sentence:</strong> Represents the main idea.</li>
+                                        <li><strong>Unity:</strong> Each sentence expands on the topic.</li>
+                                        <li><strong>Coherence:</strong> Connected line of thought. Damaged by wrong order or lack of transitions.</li>
+                                        <li><strong>Headings:</strong> Break up long passages (not all documents need them).</li>
+                                        <li><strong>Overview:</strong> Brief summary explaining the purpose and what to expect.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch7" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Structure vs. Style</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Structure:</strong> The reader's ability to understand the document as a whole.</li>
+                                        <li><strong>Style:</strong> Readability at the sentence level (construction, length, tone, word choice).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Writing Clearly</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Avoid these to maintain clear writing:</p>
+                                    <ul>
+                                        <li>Ambiguous pronoun references.</li>
+                                        <li>Ambiguous modifiers (only, just, almost, never).</li>
+                                        <li>Passive voice (unless appropriate, like "The data were analyzed").</li>
+                                        <li>Nominalizations (using nouns instead of verbs).</li>
+                                        <li>Stacked modifying nouns (too many nouns in a row).</li>
+                                        <li>Unnecessary jargon.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Writing Concisely</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Avoid Wordiness:</strong> Replace long phrases with single words (e.g., "due to the fact that" -> "because").</li>
+                                        <li><strong>Eliminate Redundancy:</strong> Remove repetitive pairs (e.g., "completely eliminate", "end result").</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>4. Writing Fluently</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Combine related ideas:</strong> A series of short, choppy sentences loses interest.</li>
+                                        <li><strong>Use parallel structure:</strong> Ensure grammatical similarity (e.g., running, kayaking, and <em>designing</em>).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>5. Writing Personably (Friendly Tone)</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Adjust tone:</strong> Choose formal, semiformal, or informal. Address readers as "you". Use "I" and "we". Emphasize the positive.</li>
+                                        <li><strong>Avoid sexist/biased language:</strong> Use gender-neutral expressions (e.g., chairperson). Use person-first language for disabilities ("person with a disability"). Use preferred cultural designations.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch8" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Written Communication Types</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>The three common types of written communication in the workplace are:</p>
+                                    <ul>
+                                        <li>Memos</li>
+                                        <li>Letters</li>
+                                        <li>Emails</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Memos vs. Emails</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Memos:</strong> Turned into PDF files/attached to emails, leave a paper trail (printed), and are formal. They give directives, provide instructions, make requests, and are easy to post.</li>
+                                        <li><strong>Emails:</strong> Can function like a memo, leave a digital trail (electronic), and are less formal.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch9" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Instructions & Procedures Strategies</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ol>
+                                        <li>Analyze your audience and purpose.</li>
+                                        <li>Always remember ethical and legal implications.</li>
+                                        <li>Use standard organization and needed elements.</li>
+                                        <li>Provide appropriate level of detail and technicality.</li>
+                                        <li>Write with a readable style.</li>
+                                        <li>Design for maximum accessibility.</li>
+                                        <li>Always test for usability.</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Usability Testing</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>With instructions and procedures, accuracy and ease of use are important. Conduct a basic usability survey and ask: <em>"Do these instructions and procedures carry out the task safely, efficiently, and accurately?"</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch10" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Importance & Purposes of Definitions</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Importance:</strong> Explain specialized terms to people without expertise in the field.</p>
+                                    <p><strong>Purposes:</strong> Level of language should match the audience's background. Clear definitions help the public understand complex technical issues and protect the writer legally and ethically.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Types of Definitions</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Parenthetical:</strong> Clarify meaning using a familiar synonym in parenthesis.</li>
+                                        <li><strong>Sentence definition:</strong> Uses the "term-class-features" method for concepts needing elaboration.</li>
+                                        <li><strong>Expanded definition:</strong> Short paragraph or several pages using methods like etymology, history, or visuals.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Methods for Expansion & Placement</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Methods:</strong> Etymology, history, negation, operating principle, analysis of parts, visuals, comparison, and examples.</p>
+                                    <p><strong>Placement:</strong> Brief definitions in parenthesis; sentence definitions in running text; expanded definitions near the beginning or in an appendix.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch11" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Importance & When to Use Visuals</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Visuals help readers interpret and remember complex information. They should enhance a document, support text, or make a point more clearly than text alone.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Tables, Graphs, and Charts</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Tables:</strong> Numeric (quantitative) and Textual (qualitative).</li>
+                                        <li><strong>Graphs:</strong> Bar graphs (changes over time, patterns) and Line graphs (large quantities of data).</li>
+                                        <li><strong>Charts:</strong> Flowcharts (processes), Pie charts, and Organizational charts.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Diagrams, Icons & Symbols</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Diagrams:</strong> Exploded diagrams (separated parts) and Cutaway diagrams (interior view).</li>
+                                        <li><strong>Icons:</strong> Resemble the items they represent (e.g., a file folder).</li>
+                                        <li><strong>Symbols:</strong> Abstract; get the meaning across without resembling the item (e.g., biohazard sign).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch12" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Importance of Document Design</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Design refers to the layout of words and graphics, determining the document's look. It affects usability, guides readers, and helps them understand the information easily.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Characteristics of Well-Designed Documents</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li>Inviting (attractive) and accessible (easily to get to).</li>
+                                        <li>Flow well as a single cohesive unit.</li>
+                                        <li>Provide visual hierarchy (displaying information in the right order).</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch13" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. What is a Summary?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>A summary is a restatement of the specific details or examples in a longer document. It conveys the meaning of the original source's ideas using the same tone, but it is always shorter than the original document.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Elements of an Effective Summary</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Accuracy:</strong> Do not change facts.</li>
+                                        <li><strong>Completeness:</strong> Include all important information.</li>
+                                        <li><strong>Conciseness:</strong> Exclude unnecessary details.</li>
+                                        <li><strong>Nontechnical style:</strong> Use simple English.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch14" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Special Types of Summaries</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Closing Summary:</strong> Appears in the concluding section to help readers review and remember major findings.</li>
+                                        <li><strong>Informative Abstract:</strong> Precedes the full report. Condenses the issue, methods, findings, and conclusion.</li>
+                                        <li><strong>Descriptive Abstract:</strong> Appears on a separate page. States what a document covers without detailed information to help people decide whether to read it.</li>
+                                        <li><strong>Executive Summary:</strong> Precedes the full report. Helps guide the thinking of decision makers.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Ethical Considerations & Strategies</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Ethical Issues:</strong> Summaries might fail to communicate full complexity or distort the original writer's intent and tone.</p>
+                                    <p><strong>Strategies:</strong> Read the original, highlight essential info, rewrite in your own words (to avoid plagiarism), edit, check against original, and indicate the exact source.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch15" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. What is a Résumé?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>A résumé is an applicant's personal advertisement for employment. It lists education, employment history, and other relevant information to give an employer an instant overview of your qualifications.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Résumé Organization Types</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Standard (Reverse chronological) résumé:</strong> Lists the most recent school and job first.</li>
+                                        <li><strong>Functional résumé:</strong> Highlights skills relevant to a particular job.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Résumé Parts & Strategies</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Parts:</strong> Contact information, Career objectives, Education, Work experience, Personal data/interests, and References.</p>
+                                    <p><strong>Strategies:</strong> Tailor for each job, limit to a single page, stick to relevant experience, use action verbs, and never invent or distort credentials.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch16" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Application Letters & Portfolios</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Application Letters (Cover Letters):</strong> Explain how qualifications fit a job. Solicited (for advertised jobs) and Unsolicited (for unadvertised jobs).</p>
+                                    <p><strong>Dossiers & Portfolios:</strong> Provide proof of credentials (transcripts, recommendation letters, examples of work).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Interview Strategies</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li>Confirm time and location. Bring a briefcase, pen, notepad, and extra résumés.</li>
+                                        <li>Make a positive first impression and dress properly.</li>
+                                        <li>Don't answer with just yes/no, and if you don't know an answer, say so.</li>
+                                        <li><strong>Never criticize</strong> a previous employer.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Follow-Up Letters</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Always follow up after an interview. The two main types are: <strong>Thank you letters</strong> (sent after the interview) and <strong>Acceptance or Refusal letters</strong> (sent after receiving a job offer).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch17" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. What is a Proposal?</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>A proposal is an offer to do something or a suggestion for action. Its main purpose is to persuade the reader to adopt your plan, buy your product, or hire your services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Solicited vs. Unsolicited Proposals</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Solicited:</strong> Requested by an organization (often via an RFP - Request for Proposal).</li>
+                                        <li><strong>Unsolicited:</strong> Initiated by the writer without a specific request, trying to convince the reader that a problem exists and needs a solution.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch18" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Formal Reports</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Formal reports are highly structured documents used to solve complex problems, present research, or provide extensive data. They are usually longer and more formal than memos or letters.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Parts of a Formal Report</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Front Matter:</strong> Title page, transmittal letter, table of contents, informative/descriptive abstracts.</li>
+                                        <li><strong>Body:</strong> Introduction, methods, results/findings, conclusion, and recommendations.</li>
+                                        <li><strong>Back Matter:</strong> References, glossary, and appendices.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="beats-ch20" class="chapter-beats" style="display: none;">
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>1. Emails (Short Written Messages)</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p>Emails leave a digital trail and are generally less formal than printed memos, but should still maintain a professional tone in the workplace.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>2. Oral & Sales Presentations</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <p><strong>Delivery Styles:</strong></p>
+                                    <ul>
+                                        <li><strong>Memorized:</strong> Avoid in workplace settings.</li>
+                                        <li><strong>Extemporaneous:</strong> The preferred style. Uses an outline but provides room to interact with listeners.</li>
+                                        <li><strong>Scripted:</strong> Read verbatim.</li>
+                                        <li><strong>Impromptu:</strong> Natural connection, no script.</li>
+                                    </ul>
+                                    <p><strong>Overcoming Anxiety:</strong> Be prepared, dress for success, take charge, and gesture naturally.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item glass-card">
+                            <div class="accordion-header" onclick="toggleBeat(this)">
+                                <span>3. Corporate Blogs & Social Networks</span>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="accordion-content">
+                                <div class="accordion-content-inner">
+                                    <ul>
+                                        <li><strong>Internal Corporate Blogs:</strong> Help employees network, replace long emails, deliver training, and enhance workflow.</li>
+                                        <li><strong>External Corporate Blogs:</strong> Communicate with customers, facilitate feedback, enhance marketing, and show a personalized side of the company.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section id="flashcards" class="page-section">
+                <h1 class="page-title">Interactive Flashcards</h1>
+                <div id="flashcard-container"></div>
+            </section>
+
+            <section id="quiz" class="page-section">
+                <h1 class="page-title">Quiz Arena</h1>
+                <div id="quiz-container"></div>
+            </section>
+
+        </main>
+    </div>
+
+    <div id="toast" class="toast">Action Complete!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
