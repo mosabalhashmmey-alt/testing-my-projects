@@ -274,19 +274,26 @@ const contentDB = {
             { q: "Where would you place the 'References' or 'Glossary' in a formal report?", options: ["Front Matter", "Body", "Back Matter"], answer: 2 }
         ]
     },
-    20: {
-        overview: "This merged chapter covers short written messages like emails, oral and sales presentation delivery styles, and the professional use of internal and external corporate blogs.",
+    19: {
+        overview: "This chapter covers short written messages like emails, and oral and sales presentation delivery styles.",
         flashcards: [
             { q: "What is the preferred delivery style for workplace presentations?", a: "Extemporaneous (using an outline but providing room to interact with listeners)." },
             { q: "What is an impromptu presentation?", a: "A presentation that relies on a natural connection with the listeners without a script." },
-            { q: "Why do companies use internal corporate blogs?", a: "To help employees network, deliver training, replace long emails, and enhance workflow." },
-            { q: "What is the purpose of external corporate blogs?", a: "To communicate with customers, facilitate feedback, enhance marketing, and personalize the company." },
             { q: "How should you overcome anxiety before a presentation?", a: "Be rehearsed and prepared, dress for success, take charge, and gesture naturally." }
         ],
         quizzes: [
             { q: "Which presentation delivery style should generally be avoided in workplace settings?", options: ["Extemporaneous", "Impromptu", "Memorized"], answer: 2 },
-            { q: "An internal corporate blog is primarily designed to:", options: ["Market products to new customers", "Help employees network and enhance workflow", "Apply for a job at another company"], answer: 1 },
             { q: "How can you overcome anxiety during an oral presentation?", options: ["Read verbatim from a script", "Dress for success, prepare well, and gesture naturally", "Avoid looking at the audience completely"], answer: 1 }
+        ]
+    },
+    20: {
+        overview: "This chapter covers the professional use of internal and external corporate blogs and social networks.",
+        flashcards: [
+            { q: "Why do companies use internal corporate blogs?", a: "To help employees network, deliver training, replace long emails, and enhance workflow." },
+            { q: "What is the purpose of external corporate blogs?", a: "To communicate with customers, facilitate feedback, enhance marketing, and personalize the company." }
+        ],
+        quizzes: [
+            { q: "An internal corporate blog is primarily designed to:", options: ["Market products to new customers", "Help employees network and enhance workflow", "Apply for a job at another company"], answer: 1 }
         ]
     }
 };
@@ -540,3 +547,32 @@ window.onload = () => {
         overviewEl.innerText = contentDB[currentChapterId].overview;
     }
 };
+
+// ==========================================
+// كود تشغيل شريط التقدم (Reading Progress Bar)
+// ==========================================
+
+// 1. مراقبة التمرير على مستوى الصفحة بالكامل
+window.addEventListener('scroll', () => {
+    const progressBar = document.getElementById('reading-progress');
+    if (progressBar) {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = (scrollTop / scrollHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+    }
+});
+
+// 2. مراقبة التمرير في حال كان السكرول داخل الحاوية (app-container)
+document.addEventListener("DOMContentLoaded", () => {
+    const mainScrollArea = document.querySelector('.app-container');
+    const progressBar = document.getElementById('reading-progress');
+    if (mainScrollArea && progressBar) {
+        mainScrollArea.addEventListener('scroll', () => {
+            const scrollTop = mainScrollArea.scrollTop;
+            const scrollHeight = mainScrollArea.scrollHeight - mainScrollArea.clientHeight;
+            const scrollPercent = (scrollTop / scrollHeight) * 100;
+            progressBar.style.width = scrollPercent + '%';
+        });
+    }
+});
