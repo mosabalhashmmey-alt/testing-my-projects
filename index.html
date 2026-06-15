@@ -8,8 +8,25 @@
     <link rel="stylesheet" href="style.css">
     
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        #reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #4facfe; /* لون أزرق يتماشى مع تصميمك */
+            width: 0%;
+            z-index: 9999;
+            box-shadow: 0 0 10px #4facfe;
+            transition: width 0.1s ease-out;
+            border-radius: 0 2px 2px 0;
+        }
+    </style>
 </head>
 <body>
+    <div id="reading-progress"></div>
+
     <div class="app-container">
         <nav class="glass-nav">
             <div class="logo">ENG103</div>
@@ -21,7 +38,7 @@
             </ul>
         </nav>
 
-        <main class="main-content">
+        <main class="main-content" id="main-scroll-area">
             
             <section id="dashboard" class="page-section active">
                 <header class="top-bar">
@@ -60,7 +77,8 @@
                         <option value="16">Chapter 16: Employment Materials</option>
                         <option value="17">Chapter 17: Proposals</option>
                         <option value="18">Chapter 18: Formal Reports</option>
-                        <option value="20">Chapter 20: Emails, Presentations & Blogs</option>
+                        <option value="19">Chapter 19: Emails & Presentations</option>
+                        <option value="20">Chapter 20: Blogs & Social Networks</option>
                     </select>
                 </div>
                 
@@ -969,7 +987,7 @@
                         </div>
                     </div>
 
-                    <div id="beats-ch20" class="chapter-beats" style="display: none;">
+                    <div id="beats-ch19" class="chapter-beats" style="display: none;">
                         <div class="accordion-item glass-card">
                             <div class="accordion-header" onclick="toggleBeat(this)">
                                 <span>1. Emails (Short Written Messages)</span>
@@ -1000,10 +1018,12 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div id="beats-ch20" class="chapter-beats" style="display: none;">
                         <div class="accordion-item glass-card">
                             <div class="accordion-header" onclick="toggleBeat(this)">
-                                <span>3. Corporate Blogs & Social Networks</span>
+                                <span>1. Corporate Blogs & Social Networks</span>
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="accordion-content">
@@ -1034,6 +1054,28 @@
     </div>
 
     <div id="toast" class="toast">Action Complete!</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const mainScrollArea = document.querySelector('.app-container');
+            const progressBar = document.getElementById('reading-progress');
+
+            mainScrollArea.addEventListener('scroll', () => {
+                const scrollTop = mainScrollArea.scrollTop;
+                const scrollHeight = mainScrollArea.scrollHeight - mainScrollArea.clientHeight;
+                const scrollPercent = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            });
+            
+            // في حالة كان التمرير على مستوى النافذة وليس الـ container
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrollPercent = (scrollTop / scrollHeight) * 100;
+                progressBar.style.width = scrollPercent + '%';
+            });
+        });
+    </script>
 
     <script src="script.js"></script>
 </body>
