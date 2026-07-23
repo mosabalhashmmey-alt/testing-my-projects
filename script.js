@@ -437,6 +437,7 @@ function setupQuiz() {
             <div class="glass-card p-4">
                 <h1 class="mb-2">Completed!</h1>
                 <h2 id="final-score" class="mb-4 text-primary">Score: 0/${quizzes.length}</h2>
+                <p id="motivational-message" class="mb-4"></p>
                 <button id="restart-quiz-btn" class="btn btn-primary">Retake</button>
             </div>
         </div>
@@ -449,6 +450,7 @@ function startQuiz() {
     document.getElementById('quiz-intro').classList.remove('active');
     document.getElementById('quiz-result').classList.remove('active');
     document.getElementById('quiz-active').classList.add('active');
+    document.getElementById('motivational-message').innerText = '';
     currentQuizIndex = 0; score = 0;
     renderQuizQuestion();
 }
@@ -506,6 +508,14 @@ function checkQuizAnswer() {
             document.getElementById('quiz-result').classList.add('active');
             document.getElementById('final-score').innerText = `Score: ${score}/${quizzes.length}`;
             if(score === quizzes.length) addXP(50);
+            const motivationalMessages = [
+                "Great job! Keep going!",
+                "Well done! You are making excellent progress.",
+                "Nice work! Keep learning and improving.",
+                "You completed the quiz! Ready for the next challenge?",
+                "Excellent effort! Every quiz makes you stronger."
+            ];
+            document.getElementById('motivational-message').innerText = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
         }
     };
 }
